@@ -23,7 +23,27 @@ Content-Length: 5
 HELLO
 ```
 
-## Solution
+## Test locally
+
+You have some event examples in the folder `events`.
+
+```bash
+cargo lambda watch
+```
+
+And, in another terminal
+
+```bash
+cargo lambda invoke --data-example examples/message.json
+```
+
+or
+
+```bash
+cargo lambda invoke --data-example examples/no-message.json
+```
+
+## Deploy the solution
 
 To build and deploy the provided solution, run:
 
