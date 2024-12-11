@@ -32,4 +32,5 @@ requirements:
 - [04-s3-event](/04-s3-event/README.md)
 - [05-sqs-event](/05-sqs-event/README.md)
 - [06-custom-event](/06-custom-event/README.md)
+- [07-api-sam](/07-api-sam/README.md)
 - [exercises](/exercises/README.md)
