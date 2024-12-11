@@ -31,4 +31,5 @@ requirements:
 - [03-hello-lambda](/03-hello-lambda/README.md)
 - [04-s3-event](/04-s3-event/README.md)
 - [05-sqs-event](/05-sqs-event/README.md)
+- [06-custom-event](/06-custom-event/README.md)
 - [exercises](/exercises/README.md)
