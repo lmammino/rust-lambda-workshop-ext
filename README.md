@@ -26,9 +26,8 @@ requirements:
 
 ## Chapters
 
-- [01-hello-world](01-hello-world/README.md)
-- [02-option-error](02-option-error/README.md)
-- [03-hello-lambda](03-hello-lambda/README.md)
-- [04-hello-lambda-sam]() - Coming soon
-- [05-ping-service]() - Coming soon
-- [06-exercises]() - Coming soon
+- [01-hello-world](/01-hello-world/README.md)
+- [02-option-error](/02-option-error/README.md)
+- [03-hello-lambda](/03-hello-lambda/README.md)
+- [04-s3-event](/04-s3-event/README.md)
+- [exercises](/exercises/README.md)
