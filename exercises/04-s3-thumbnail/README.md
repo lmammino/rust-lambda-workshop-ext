@@ -1,4 +1,4 @@
-# 03-s3-event-sam
+# 04-s3-thumbnail
 
 **✏️ Exercise**
 
@@ -9,12 +9,18 @@ bucket name to the lambda function using an environment variable.
 
 ## Local testing
 
+You'll need to have deployed the stack to have created the bucket, first!
+
 ```bash
-export BUCKET_NAME=your-bucket-name
+export SRC_BUCKET_NAME=src-your-bucket-name
+export DEST_BUCKET_NAME=dest-your-bucket-name
 cargo lambda watch
 ```
 
-in another terminal:
+Copy some files in the source bucket and edit the `events/s3.json` file to match
+one of the added files.
+
+Then, in another terminal:
 
 ```bash
 cargo lambda invoke --event events/s3.json
