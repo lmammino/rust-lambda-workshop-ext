@@ -1,0 +1,48 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform:
+  - AWS::Serverless-2016-10-31
+
+Parameters:
+  BucketNameParam:
+    Type: String
+    Description: The name of the bucket to be created (must be unique)
+    Default: "my-super-secret-unique-bucket"
+
+Resources:
+  ProcessS3EventLambda:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: rust-cargolambda
+    Properties:
+      CodeUri: .
+      Handler: bootstrap
+      Runtime: provided.al2023
+      Architectures:
+        - arm64
+      Environment:
+        Variables:
+          SRC_BUCKET_NAME: !Sub src-${BucketNameParam}
+          DEST_BUCKET_NAME: !Sub dest-${BucketNameParam}
+      Events:
+        BucketEvent:
+          Type: S3
+          Properties:
+            Bucket: !Ref SourceBucket
+            Events:
+              - 's3:ObjectCreated:*'
+      Policies: 
+        - S3ReadPolicy:
+            BucketName: !Sub src-${BucketNameParam}
+        - S3WritePolicy:
+            BucketName: !Sub dest-${BucketNameParam}
+
+  SourceBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties: 
+      BucketName: !Sub src-${BucketNameParam}
+
+  DestBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties: 
+      BucketName: !Sub dest-${BucketNameParam}
+    
