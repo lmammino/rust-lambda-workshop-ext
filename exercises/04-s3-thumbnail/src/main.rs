@@ -1,7 +1,7 @@
 use aws_config::BehaviorVersion;
 use aws_lambda_events::event::s3::S3Event;
 use aws_sdk_s3::primitives::ByteStream;
-use image::{guess_format, ImageFormat, ImageReader};
+use image::{guess_format, ImageReader};
 use lambda_runtime::{run, service_fn, tracing, Error, LambdaEvent};
 use std::{env, io::Cursor};
 use tokio::io::AsyncReadExt;
